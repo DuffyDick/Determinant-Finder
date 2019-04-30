@@ -37,14 +37,19 @@ int find_submatrix(int A[50][50],int B[50][50],int max ,int line, int col){
         for (j = 0; j < col; j++){
             B[i][j] = A[i][j];
         }
+        for (j = col+1; j < max; j++){
+            B[i][j-1] = A[i][j];
+        }
     }
 
     for (i = line+1; i < max; i++){
+         for (j = 0; j < col; j++){
+            B[i-1][j] = A[i][j];
+        }
         for (j = col+1; j < max; j++){
             B[i-1][j-1] = A[i][j];
         }
     }
-
 }
 
 int algebric_complement(int A[50][50],int i){
@@ -62,7 +67,7 @@ int main(){
     show_matrix(A,i);
     det = determinant(A);
     printf("il determinante e': %d\n\n",det);
-    find_submatrix(A,B,i,1,2);
+    find_submatrix(A,B,i,1,1);
     show_matrix(B,i-1);
     return 0;
 }
