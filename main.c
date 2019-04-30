@@ -67,7 +67,7 @@ int main(){
     show_matrix(A,i);
     det = determinant(A);
     printf("il determinante e': %d\n\n",det);
-    find_submatrix(A,B,i,1,1);
+    find_submatrix(A,B,i,2,2);
     show_matrix(B,i-1);
     return 0;
 }
