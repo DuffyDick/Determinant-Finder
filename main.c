@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 int show_matrix(int A[50][50],int i){
-    int j = 1;
+    int j = -1;
     for (int k = 0; k < i; k++){
         for (int h = 0; h < i; h++){
             j += 1;
