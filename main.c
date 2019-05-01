@@ -1,4 +1,4 @@
-//program to find the determinant of a square matrix
+//program to find the detereminant of a square matrix
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,26 +27,26 @@ int take_matrix(int A[50][50],int i){
     }
 }
 
-int determinant(int A[50][50]){
+int detereminant_2x2(int A[50][50]){
     return (A[0][0]*A[1][1]) - (A[0][1]*A[1][0]);
 }
 
-int find_submatrix(int A[50][50],int B[50][50],int max ,int line, int col){
+int find_submatrix(int A[50][50],int B[50][50],int max ,int rem){
     int i = 0, j = 0;
-    for (i = 0; i < line; i++){
-        for (j = 0; j < col; j++){
+    for (i = 0; i < rem; i++){
+        for (j = 0; j < rem; j++){
             B[i][j] = A[i][j];
         }
-        for (j = col+1; j < max; j++){
+        for (j = rem+1; j < max; j++){
             B[i][j-1] = A[i][j];
         }
     }
 
-    for (i = line+1; i < max; i++){
-         for (j = 0; j < col; j++){
+    for (i = rem+1; i < max; i++){
+         for (j = 0; j < rem; j++){
             B[i-1][j] = A[i][j];
         }
-        for (j = col+1; j < max; j++){
+        for (j = rem+1; j < max; j++){
             B[i-1][j-1] = A[i][j];
         }
     }
@@ -65,9 +65,9 @@ int main(){
     take_matrix(A,i);
     printf("\e[1;1H\e[2J");
     show_matrix(A,i);
-    det = determinant(A);
-    printf("il determinante e': %d\n\n",det);
-    find_submatrix(A,B,i,2,2);
+    det = detereminant_2x2(A);
+    printf("il detereminante e': %d\n\n",det);
+    find_submatrix(A,B,i,1);
     show_matrix(B,i-1);
     return 0;
 }
